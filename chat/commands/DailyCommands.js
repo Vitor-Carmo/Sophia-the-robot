@@ -1,5 +1,12 @@
 
 const prefix = '!'
+const devs =  [
+  '<@!385394348017319946>',
+  '<@!740185267570212935>',
+  '<@!461288735410225153>',
+  '<@!358292375073980417>',
+  '<@!474417077654913034>',
+]
 
 function shuffle(a) {
     for (let i = a.length - 1; i > 0; i--) {
@@ -10,12 +17,7 @@ function shuffle(a) {
 }
 
 function randomDevs(){
-  const devs =  [
-    '<@!385394348017319946>',
-    '<@!740185267570212935>',
-    '<@!461288735410225153>',
-    '<@!358292375073980417>',
-  ]
+  
   const randomized = shuffle(devs)
 
   let msg = '**Aqui está a ordem certinha para vocês apresentarem a daily scrum xuxus :heart:**\n'
@@ -50,7 +52,7 @@ const DailyCommands = (discord) =>{
 
   if(discord.content.startsWith(prefix + 'ultimo') ){
     const target_one = discord.content.split(' ')[1]
-    if(target_one == undefined || target_one === "" || target_one == "undefined"){
+    if(devs.indexOf(target_one) === -1){
       discord.channel.send(
          `"${target_one}"??? Não! não desta vez, <@!${discord.author.id}>!  :rage:`, 
         {files: [
